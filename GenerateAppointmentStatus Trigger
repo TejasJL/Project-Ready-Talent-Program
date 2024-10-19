@@ -1,0 +1,4 @@
+trigger GenerateAppointmentStatus on Patient__c (after insert) {
+    // Call the method to generate the report for the newly inserted patient
+    AppointmentStatusGenerator.generateAppointmentStatus();
+}
