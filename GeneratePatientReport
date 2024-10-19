@@ -1,3 +1,0 @@
-trigger GeneratePatientReport on Patient__c (after insert) {
-    // Calling the method to generate the report for the newly inserted patient
-    HealthReportGenerator.generateReport();
