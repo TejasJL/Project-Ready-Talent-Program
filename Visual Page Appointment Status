@@ -1,0 +1,17 @@
+<apex:page controller="AppointmentStatusController" >
+    <apex:pageBlock title="Patient Appointment Status">
+        <apex:pageBlockSection title="Patient Information">
+           
+            <apex:outputText value="{!patient.Name}" />
+
+           
+            <apex:outputText value="{!patient.Patient_Age__c}" />
+
+           
+            <apex:outputText value="{!patient.Appointment_Date__c}" />
+
+            <apex:outputText value="{!doctor.Name}" />
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>
+               
