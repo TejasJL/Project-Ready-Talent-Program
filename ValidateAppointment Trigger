@@ -1,0 +1,46 @@
+trigger ValidateAppointment on Patient__c (before insert, before update) { 
+    for (Patient__c newAppointment : Trigger.new) {
+        // Ensure that the Appointment_Date__c field is not null
+        if (newAppointment.Appointment_Date__c == null) {
+            newAppointment.addError('Please select a valid appointment date and time.');
+            return;
+        }
+
+        // Check if the appointment time falls within the allowed range (9 AM to 1 PM)
+        Time appointmentTime = newAppointment.Appointment_Date__c.time();
+        Time startTime = Time.newInstance(9, 0, 0, 0); // 9 AM
+        Time endTime = Time.newInstance(13, 0, 0, 0); // 1 PM
+
+        if (appointmentTime < startTime || appointmentTime > endTime) {
+            newAppointment.addError('Appointments must be between 9 AM and 1 PM.');
+            return;
+        }
+
+        
+        Date appointmentDate = newAppointment.Appointment_Date__c.date();
+
+        // Query to check if any other appointment exists for the same doctor on the same date
+        List<Patient__c> conflictingAppointments = [SELECT Id, Appointment_Date__c 
+                                                    FROM Patient__c 
+                                                    WHERE Doctor_Name__c = :newAppointment.Doctor_Name__c
+                                                    AND Appointment_Date__c != null
+                                                    AND Id != :newAppointment.Id
+                                                    AND DAY_ONLY(Appointment_Date__c) = :appointmentDate];
+
+        // Loop through the conflicting appointments to check for time overlaps on the same date
+        for (Patient__c existingAppointment : conflictingAppointments) {
+            Time existingStartTime = existingAppointment.Appointment_Date__c.time();
+            Time existingEndTime = existingStartTime.addHours(1); // 1-hour buffer
+
+            Time appointmentStartTime = newAppointment.Appointment_Date__c.time();
+            Time appointmentEndTime = appointmentStartTime.addHours(1);
+
+            // Check if the new appointment overlaps within 1 hour of an existing one
+            if ((appointmentStartTime >= existingStartTime && appointmentStartTime < existingEndTime) ||
+                (appointmentEndTime > existingStartTime && appointmentEndTime <= existingEndTime)) {
+                newAppointment.addError('This doctor already has an appointment within 1 hour of the selected time.');
+                return;
+            }
+        }
+    }
+}
