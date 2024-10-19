@@ -1,0 +1,19 @@
+public with sharing class AppointmentStatusController {
+    public Patient__c patient { get; set; }
+    public Doctor__c doctor { get; set; }
+
+    // Constructor to fetch the most recently added patient and associated doctor
+    public AppointmentStatusController() {
+        // Fetch the latest patient
+        patient = [SELECT Id, Name,Patient_Age__c, Appointment_Date__c, Doctor_Name__c 
+                   FROM Patient__c 
+                   ORDER BY CreatedDate DESC 
+                   LIMIT 1];
+
+        // Fetch the corresponding doctor
+        doctor = [SELECT Id, Name 
+                  FROM Doctor__c 
+                  WHERE Name = :patient.Doctor_Name__c 
+                  LIMIT 1];
+    }
+}
