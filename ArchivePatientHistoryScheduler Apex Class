@@ -1,0 +1,7 @@
+public class ArchivePatientHistoryScheduler implements Schedulable {
+    public void execute(SchedulableContext sc) {
+        // Call the batch class to archive patient history
+        ArchivePatientHistoryBatch batchJob = new ArchivePatientHistoryBatch();
+        Database.executeBatch(batchJob);
+    }
+}
