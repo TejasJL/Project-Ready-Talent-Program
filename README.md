@@ -79,3 +79,14 @@ The **Healthcare Patient Management System** is built entirely on the **Salesfor
  In conclusion, the Healthcare Patient Management System represents a significant leap forward in how healthcare providers manage patient appointments. By reducing scheduling conflicts, automating appointment management, and empowering doctors with better data, the system greatly enhances both patient care and operational efficiency.So this project will try to help both patients and doctors not only now but also in future by adding more features .
 In the world, where healthcare demands are constantly growing, this project serves as a forward-thinking solution that bridges the gap between technology and patient care. The Healthcare Patient Management System is not only ready to meet today’s needs but is primed to adapt and innovate with the healthcare challenges of tomorrow.
 
+
+---
+
+### 👤 Author
+
+**Tejas**  
+📧 [ftejas52@gmail.com](mailto:ftejas52@gmail.com)  
+
+💬 *For suggestions, collaboration, or just to connect — feel free to reach out via email.*  
+
+[![Email Me](https://img.shields.io/badge/Send%20Email-%F0%9F%93%A7%20ftejas52@gmail.com-ff512f?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ftejas52@gmail.com)
