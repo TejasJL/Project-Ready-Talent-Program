@@ -4,6 +4,24 @@
 > A powerful, intelligent, and user-friendly **Salesforce-based solution** to streamline **patient appointment booking** and **doctor scheduling**, aimed at enhancing operational efficiency and reducing wait times in healthcare organizations.
 
 ---
+## Screenshots
+- ### Book Appointment
+![book Appointment](https://github.com/user-attachments/assets/1711363d-a99e-428a-9cf2-9378bf1e6983)
+
+- ### Patient Appointment Status
+![Appoi status](https://github.com/user-attachments/assets/64510714-82de-4e26-9637-d19d58ed838e)
+
+- ### All Patients
+![All Patients](https://github.com/user-attachments/assets/39c4c254-6b03-43ac-a6f9-28229eb66ef4)
+
+- ### List of Patients for a Specific Doctor
+![Doctor wise patients](https://github.com/user-attachments/assets/f2367cef-0096-46ab-b3b1-b5e8bbc7e94c)
+
+- ### All Doctors with Their Patients – Report
+![Report (All Doctors with their patients)](https://github.com/user-attachments/assets/c92ae128-851f-4125-a1ef-536f47419672)
+
+---
+
 
 ## 📌 Project Overview
 
